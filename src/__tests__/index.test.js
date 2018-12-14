@@ -29,9 +29,14 @@ describe('deepMapper should map arbitrary nested structures', () => {
 
   test('should map parent before a child', () => {
     expect(
-      deepMapper({ child: { value: 'x' } }, () => ({
-        child: 'I am changed',
-      }))
+      deepMapper({ child: { value: 'x' } }, item => {
+        if (isObject(item)) {
+          return {
+            child: 'I am changed',
+          };
+        }
+        return item;
+      })
     ).toEqual({
       child: 'I am changed',
     });
