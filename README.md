@@ -69,9 +69,15 @@ The mapping is done as a [pre-order traversal](https://en.wikipedia.org/wiki/Tre
 This means that, if you change the parent by removing some of its children, the removed children won't be mapped.
 
  ```js
-deepMapper({ child: { value: 'x' }}, item => ({
-  child: 'I am changed'
-}))
+deepMapper({ child: { value: "x" } }, item => {
+  if (isObject(item)) {
+    return {
+      child: "I am changed"
+    };
+  }
+  return item;
+});
+
  // gives
 /*
 {
