@@ -8,8 +8,8 @@ module.exports = function deepMapper(
 ) {
   itemToMapped.set(parent, mapper(parent));
   const mappedParent = itemToMapped.get(parent);
-  if (isObject(parent)) {
-    forEach(parent, (child, parentLink) => {
+  if (isObject(mappedParent)) {
+    forEach(mappedParent, (child, parentLink) => {
       if (!itemToMapped.has(child)) {
         deepMapper(child, mapper, itemToMapped);
       }
