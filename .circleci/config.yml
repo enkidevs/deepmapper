@@ -44,7 +44,7 @@ jobs:
       - attach_workspace:
           at: ~/deepmapper
       - run:
-          name: Lint
+          name: Test
           command: npm run test:ci
 
 workflows:
