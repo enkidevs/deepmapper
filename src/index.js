@@ -15,7 +15,6 @@ module.exports = function deepMapper(
       }
       mappedParent[parentLink] = itemToMapped.get(child);
     });
-    return mappedParent;
   }
 
   return mappedParent;
