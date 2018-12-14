@@ -1,0 +1,66 @@
+{
+  "name": "@enkidevs/deepmapper",
+  "version": "0.9.0",
+  "description": "Utility for mapping arbitrary structures",
+  "scripts": {
+    "check-branch": "enkidevs-assert-restricted-branch",
+    "format": "prettier --write 'src/**/*.js'",
+    "lint:ci": "CI=true eslint . --ignore-path .gitignore --quiet",
+    "lint": "eslint . --ignore-path .gitignore",
+    "prepare": "npm run lint",
+    "test:ci": "NODE_ENV=test CI=true jest --coverage",
+    "test": "NODE_ENV=test jest --notify"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src/index.js"
+  ],
+  "homepage": "https://github.com/enkidevs/deepmapper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enkidevs/deepmapper.git"
+  },
+  "engines": {
+    "node": "^8.10.0"
+  },
+  "keywords": [
+    "deep",
+    "map",
+    "mapper",
+    "immutable",
+    "nested"
+  ],
+  "author": "Nemanja Stojanovic <nemanjacoder@gmail.com>",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx}": [
+        "npm run check-branch",
+        "npm run format",
+        "npm run lint",
+        "git add"
+      ]
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash.foreach": "^4.5.0",
+    "lodash.isobject": "^3.0.2"
+  },
+  "devDependencies": {
+    "@enkidevs/assert-restricted-branch": "^1.0.2",
+    "@enkidevs/eslint-config-backend": "^0.2.3",
+    "eslint": "^5.10.0",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3"
+  }
+}
