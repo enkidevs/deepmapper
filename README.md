@@ -29,7 +29,7 @@ const obj = {
   }
 };
 
-const result = deepMapper(x => {
+const result = deepMapper(obj, x => {
   if (Array.isArray(x)) {
     return x.slice();
   }
@@ -66,22 +66,8 @@ const obj = {
 ```
 
 The mapping is done as a [pre-order traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order_(NLR)).
-This means that, if you change the parent by removing some of its children, the removed children won't be mapped.
 
-```js
-deepMapper({ child: { value: 'x' }}, item => ({
-  child: 'I am changed'
-}))
-
-// gives
-/*
-{
-  child: 'I am changed'
-}
-*/
-```
-
-Commonly, you'd want to do mapping in an immutable fashion:
+Commonly, you'd want to map values in an immutable fashion:
 
 ```js
 deepMapper({
@@ -112,7 +98,8 @@ Here's how you'd write a deep clone function using `deepmapper` and `shallow-clo
 const deepMapper = require("@enkidevs/deepmapper");
 const shallowClone = require("shallow-clone");
 
-const obj = { a: [{ b: "test" }, 1, /abc/], c: false, d: new Date(2) };
+const obj = { a: [{ b: "test" }, 1, /abc/g], c: false, d: new Date(2) };
+
 const cloned = deepMapper(obj, shallowClone);
 ```
 
