@@ -27,6 +27,16 @@ describe('deepMapper should map arbitrary nested structures', () => {
     expect(result).toEqual({ a: 2, b: 3, c: 4 });
   });
 
+  test('should map parent before a child', () => {
+    expect(
+      deepMapper({ child: { value: 'x' } }, () => ({
+        child: 'I am changed',
+      }))
+    ).toEqual({
+      child: 'I am changed',
+    });
+  });
+
   test('should map every object in array', () => {
     const arr = [{ a: 1 }, { b: 2 }, { c: 3 }];
     expect(

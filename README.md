@@ -66,6 +66,19 @@ const obj = {
 ```
 
 The mapping is done as a [pre-order traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order_(NLR)).
+This means that, if you change the parent by removing some of its children, the removed children won't be mapped.
+
+ ```js
+deepMapper({ child: { value: 'x' }}, item => ({
+  child: 'I am changed'
+}))
+ // gives
+/*
+{
+  child: 'I am changed'
+}
+*/
+```
 
 Commonly, you'd want to map values in an immutable fashion:
 
