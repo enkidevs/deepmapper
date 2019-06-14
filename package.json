@@ -58,7 +58,7 @@
     "@enkidevs/assert-restricted-branch": "^1.0.2",
     "@enkidevs/eslint-config-backend": "^0.2.3",
     "eslint": "^5.10.0",
-    "husky": "^1.2.1",
+    "husky": "^2.4.1",
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3"
