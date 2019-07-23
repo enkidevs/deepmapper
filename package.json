@@ -1,6 +1,6 @@
 {
   "name": "@enkidevs/deepmapper",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Utility for mapping arbitrary structures",
   "scripts": {
     "check-branch": "enkidevs-assert-restricted-branch",
