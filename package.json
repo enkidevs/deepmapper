@@ -55,7 +55,7 @@
   "devDependencies": {
     "@enkidevs/assert-restricted-branch": "^1.0.2",
     "@enkidevs/eslint-config-backend": "^2.0.0",
-    "eslint": "^5.10.0",
+    "eslint": "^6.2.2",
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "lint-staged": "^9.1.0",
