@@ -1,5 +1,5 @@
 const isObject = require('lodash.isobject');
-const deepMapper = require('../');
+const deepMapper = require('..');
 
 describe('deepMapper should map arbitrary nested structures', () => {
   test('should do nothing without a mapper function', () => {
