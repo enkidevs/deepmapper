@@ -16,7 +16,7 @@ jobs:
           at: ~/deepmapper
       - run:
           name: NPM Install
-          command: npm install
+          command: npm ci
       - save_cache:
           paths:
             - node_modules
