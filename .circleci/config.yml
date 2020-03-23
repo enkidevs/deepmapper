@@ -4,7 +4,7 @@ jobs:
   install:
     working_directory: ~/deepmapper
     docker:
-      - image: circleci/node:8.10.0
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
@@ -27,7 +27,7 @@ jobs:
   lint:
     working_directory: ~/deepmapper
     docker:
-      - image: circleci/node:8.10.0
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - attach_workspace:
@@ -38,7 +38,7 @@ jobs:
   test:
     working_directory: ~/deepmapper
     docker:
-      - image: circleci/node:8.10.0
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - attach_workspace:
