@@ -8,20 +8,20 @@ describe('deepMapper should map arbitrary nested structures', () => {
   });
 
   test('should map a primitive', () => {
-    expect(deepMapper(1, n => n + 1)).toEqual(2);
+    expect(deepMapper(1, (n) => n + 1)).toEqual(2);
   });
 
   test('should map a single array', () => {
     const arr = [1, 2, 3];
-    const result = deepMapper(arr, n =>
+    const result = deepMapper(arr, (n) =>
       typeof n === 'number' ? n + 1 : n.slice()
     );
-    expect(result).toEqual(arr.map(n => n + 1));
+    expect(result).toEqual(arr.map((n) => n + 1));
   });
 
   test('should map a single object', () => {
     const obj = { a: 1, b: 2, c: 3 };
-    const result = deepMapper(obj, n =>
+    const result = deepMapper(obj, (n) =>
       typeof n === 'number' ? n + 1 : { ...n }
     );
     expect(result).toEqual({ a: 2, b: 3, c: 4 });
@@ -29,7 +29,7 @@ describe('deepMapper should map arbitrary nested structures', () => {
 
   test('should map parent before a child', () => {
     expect(
-      deepMapper({ child: { value: 'x' } }, item => {
+      deepMapper({ child: { value: 'x' } }, (item) => {
         if (isObject(item)) {
           return {
             child: 'I am changed',
@@ -45,7 +45,7 @@ describe('deepMapper should map arbitrary nested structures', () => {
   test('should map every object in array', () => {
     const arr = [{ a: 1 }, { b: 2 }, { c: 3 }];
     expect(
-      deepMapper(arr, item => {
+      deepMapper(arr, (item) => {
         if (Array.isArray(item)) {
           return item.slice();
         }
@@ -60,7 +60,7 @@ describe('deepMapper should map arbitrary nested structures', () => {
   test('should map a nested structure', () => {
     const arr = [{ a: [1, 2, 3] }, { b: '1' }, { c: { value: '2' } }];
     expect(
-      deepMapper(arr, item => {
+      deepMapper(arr, (item) => {
         if (Array.isArray(item)) {
           return item.slice();
         }
@@ -76,7 +76,7 @@ describe('deepMapper should map arbitrary nested structures', () => {
     const ref = { a: [1, 2, 3] };
     const arr = [ref, ref, { b: ref }, { c: { value: ref } }];
     expect(
-      deepMapper(arr, item => {
+      deepMapper(arr, (item) => {
         if (Array.isArray(item)) {
           return item.slice();
         }
@@ -104,7 +104,7 @@ describe('deepMapper should map arbitrary nested structures', () => {
     };
     expected.b.loop = expected.a;
     expect(
-      deepMapper(obj, item => {
+      deepMapper(obj, (item) => {
         if (Array.isArray(item)) {
           return item.slice();
         }

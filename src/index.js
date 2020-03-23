@@ -3,7 +3,7 @@ const forEach = require('lodash.foreach');
 
 module.exports = function deepMapper(
   parent,
-  mapper = x => x,
+  mapper = (x) => x,
   itemToMapped = new Map()
 ) {
   itemToMapped.set(parent, mapper(parent));
